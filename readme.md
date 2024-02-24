@@ -46,13 +46,13 @@ python SLICE_DET.py --proj_lib [path] --mrsid_decoder_path [path] --model_path [
 Contributions are welcome! Please fork the repository and submit pull requests with any enhancements, bug fixes, or improvements.
 
 ## Future Improvements
--Better Error Handling
--Fencing around CUDA
--Smarter Model Handling for Relevant GSD based Models
--Training Scripts
--Geo Files to Annotated Data
--Training Data Out
--Other Types of YOLOV8 Model Handling
+- Better Error Handling
+- Fencing around CUDA
+- Smarter Model Handling for Relevant GSD based Models
+- Training Scripts
+- Geo Files to Annotated Data
+- Training Data Out
+- Other Types of YOLOV8 Model Handling
 
 ## License
 
