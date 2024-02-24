@@ -1,6 +1,6 @@
-# SLICE_DET: Image Slicing and Object Detection
+# SpatialNetForge: Image Slicing and Object Detection
 
-SLICE_DET is a Python tool designed for image slicing and object detection using pre-trained models. It facilitates the processing of large geospatial images by slicing them into smaller, manageable pieces, applying object detection algorithms, and optionally merging the results.
+SpatialNetForge is a Python tool designed for image slicing and object detection using pre-trained models. It facilitates the processing of large geospatial images by slicing them into smaller, manageable pieces, applying object detection algorithms, and optionally merging the results.
 
 ## Features
 
