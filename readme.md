@@ -35,6 +35,8 @@ The requirements.txt file includes the following packages:
 
 For CUDA support, ensure you install the CUDA version of PyTorch that matches your system's CUDA installation. This can significantly improve performance for GPU-accelerated computing. Visit the PyTorch official website for specific installation instructions related to different CUDA versions.
 
+If using SID files download: https://trac.osgeo.org/gdal/wiki/MrSID
+
 After installing the required packages, adjust the PROJ_LIB, mrsid_decoder_path, and model_path in the script to match your environment and proceed with the usage instructions.
 
 ## Usage
