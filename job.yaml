@@ -1,21 +1,24 @@
-model_path: "C:\\Users\\red\\ZoeDepth\\runs\\detect\\train19\\weights\\best.pt"
-objects:
+model_path: "C:\\Users\\red\\ZoeDepth\\runs\\detect\\train19\\weights\\best.pt" # path to model
+objects: # list of objects to detect or single path to a text file with list of objects
   - "Sedan"
   - "Pickup"
   - "Other"
   - "Unknown"
-model_type: "yolov8"
-model_device: "cuda:0"
-model_confidence_threshold: 0.4
-slice_height: 512
-slice_width: 512
-overlap_height_ratio: 0.2
-overlap_width_ratio: 0.2
-source_image_dir: "D:\\BRE_TIF\\test_tif"
-out_dir: "C:\\Users\\red\\ZoeDepth\\BRE2018_OUT"
-workers: 4
-merge: true
-keep_tiffs: false
-save_prediction_images: false
-save_prediction_images_dir: "C:\\Users\\red\\ZoeDepth\\BRE2018_OUT\\prediction_images"
-save_prediction_images_format: "png" ## "png" or "tif"
+model_type: "yolov8" # "yolov8" at the moment
+model_device: "cuda:0" # "cpu" or "cuda:0"
+model_confidence_threshold: 0.4 # confidence threshold for model
+slice_height: 512 # slice height the model will use what model is trained on
+slice_width: 512 # slice width the model will use what model is trained on
+overlap_height_ratio: 0.2 #percentage of overlap
+overlap_width_ratio: 0.2 #percentage of overlap
+source_image_dir: "C:\\Users\\red\\ZoeDepth\\BRE2018" # input directory of image files
+out_dir: "C:\\Users\\red\\ZoeDepth\\BRE2018_OUT" # output directory main output directory
+workers: 10 # number of workers for parallel processing
+merge: true # true or false - merge all generated geo files into one
+keep_jpgs: false # true or false - keep tiffs after processing
+save_prediction_images: false # true or false
+save_prediction_images_dir: "C:\\Users\\red\\ZoeDepth\\BRE2018_OUT\\prediction_images" ## only used if save_prediction_images is true
+save_prediction_images_format: ".png" ## ".png", ".tif" or "/jpg"
+model_gsd: 6.0
+model_gsd_unit: "in" ## "ft", "m", "cm", "in" per pixel
+mt: true # true or false - use multithreading
