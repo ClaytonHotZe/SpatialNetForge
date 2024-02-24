@@ -1,5 +1,7 @@
 import os
 
+import yaml
+
 os.environ['PROJ_LIB'] = r"C:\Users\red\anaconda3\envs\pygdal\Library\share\proj"
 import concurrent
 from multiprocessing import freeze_support
@@ -11,41 +13,34 @@ if __name__ == "__main__":
     freeze_support()
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--proj_lib', default=r"C:\Users\red\anaconda3\envs\pygdal\Library\share\proj")
-    parser.add_argument('--mrsid_decoder_path',
-                        default=r"C:\Users\red\ZoeDepth\MrSID_DSDK-9.5.5.5244-win64-vc17\MrSID_DSDK-9.5.5.5244-win64-vc17\Raster_DSDK\bin")
-    parser.add_argument('--model_path', default=r"C:\Users\red\ZoeDepth\runs\detect\train19\weights\best.pt")
-    parser.add_argument('--objects', nargs='+', default=['Sedan', 'Pickup', 'Other', 'Unknown'])
-    parser.add_argument('--model_type', default="yolov8")
-    parser.add_argument('--model_device', default='cuda:0')
-    parser.add_argument('--model_confidence_threshold', type=float, default=0.4)
-    parser.add_argument('--slice_height', type=int, default=512)
-    parser.add_argument('--slice_width', type=int, default=512)
-    parser.add_argument('--overlap_height_ratio', type=float, default=0.2)
-    parser.add_argument('--overlap_width_ratio', type=float, default=0.2)
-    parser.add_argument('--source_image_dir', default=r"D:\BRE_TIF\test_tif")
-    parser.add_argument('--out_dir', default=r"C:\Users\red\ZoeDepth\BRE2018_OUT")
-    parser.add_argument('--workers', type=int, default=4)
-    parser.add_argument('--merge', type=bool, default=True)
+    parser.add_argument('--env_yaml', default=r"C:\Users\red\Desktop\SpatialNetForge\enviroment_helper.yaml")
+    parser.add_argument('--job_yaml', default=r"C:\Users\red\Desktop\SpatialNetForge\job.yaml")
 
     args = parser.parse_args()
 
-    merge_shps = args.merge
-    os.environ['PROJ_LIB'] = args.proj_lib
+    # Load the configuration from the YAML file
+    with open(args.env_yaml, 'r') as file:
+        env_config = yaml.safe_load(file)
+    with open(args.job_yaml, 'r') as file:
+        job_config = yaml.safe_load(file)
+    # Access the configuration values
+    os.environ['PROJ_LIB'] = env_config['proj_lib']
     os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
-    mrsid_decoder_path = args.mrsid_decoder_path
-    model_path = args.model_path
-    objects = args.objects
-    model_type = args.model_type
-    model_device = args.model_device
-    model_confidence_threshold = args.model_confidence_threshold
-    slice_height = args.slice_height
-    slice_width = args.slice_width
-    overlap_height_ratio = args.overlap_height_ratio
-    overlap_width_ratio = args.overlap_width_ratio
-    source_image_dir = args.source_image_dir
-    out_dir = args.out_dir
-    workers = args.workers
+    mrsid_decoder_path = env_config['mrsid_decoder_path']
+    model_path = job_config['model_path']
+    objects = job_config['objects']
+    model_type = job_config['model_type']
+    model_device = job_config['model_device']
+    model_confidence_threshold = job_config['model_confidence_threshold']
+    slice_height = job_config['slice_height']
+    slice_width = job_config['slice_width']
+    overlap_height_ratio = job_config['overlap_height_ratio']
+    overlap_width_ratio = job_config['overlap_width_ratio']
+    source_image_dir = job_config['source_image_dir']
+    out_dir = job_config['out_dir']
+    workers = job_config['workers']
+    merge_shps = job_config['merge']
+
     sanity_check = True
     acceptable_files = ['.tif', '.tiff', '.geotiff', '.png', '.jpg', '.jpeg', '.bmp', '.sid']
     time_dict = {}

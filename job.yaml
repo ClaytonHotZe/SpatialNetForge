@@ -1,0 +1,21 @@
+model_path: "C:\\Users\\red\\ZoeDepth\\runs\\detect\\train19\\weights\\best.pt"
+objects:
+  - "Sedan"
+  - "Pickup"
+  - "Other"
+  - "Unknown"
+model_type: "yolov8"
+model_device: "cuda:0"
+model_confidence_threshold: 0.4
+slice_height: 512
+slice_width: 512
+overlap_height_ratio: 0.2
+overlap_width_ratio: 0.2
+source_image_dir: "D:\\BRE_TIF\\test_tif"
+out_dir: "C:\\Users\\red\\ZoeDepth\\BRE2018_OUT"
+workers: 4
+merge: true
+keep_tiffs: false
+save_prediction_images: false
+save_prediction_images_dir: "C:\\Users\\red\\ZoeDepth\\BRE2018_OUT\\prediction_images"
+save_prediction_images_format: "png" ## "png" or "tif"
