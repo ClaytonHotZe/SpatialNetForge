@@ -11,14 +11,31 @@ SLICE_DET is a Python tool designed for image slicing and object detection using
 
 ## Requirements
 
-- Python 3.x
-- Libraries: os, concurrent, statistics, argparse
+- Python 3.10
 - A pre-trained model compatible with YOLOv8.
 - MrSID Decoder (for MrSID image format support).
 
 ## Installation
 
-Ensure Python 3.x and required libraries are installed. Download or clone this repository to your local machine. Adjust the `PROJ_LIB`, `mrsid_decoder_path`, and `model_path` in the script to match your environment.
+Ensure Python 3.10 is installed on your system. Clone or download this repository to your local machine.
+
+Install the required Python packages by running the following command in your terminal:
+
+```sh
+pip install -r requirements.txt
+```
+The requirements.txt file includes the following packages:
+
+- ultralytics==8.1.6
+- torch==2.1.2
+- sahi==0.11.15
+- geopandas==0.14.0
+- pandas==1.5.3
+- pillow==9.5.0
+
+For CUDA support, ensure you install the CUDA version of PyTorch that matches your system's CUDA installation. This can significantly improve performance for GPU-accelerated computing. Visit the PyTorch official website for specific installation instructions related to different CUDA versions.
+
+After installing the required packages, adjust the PROJ_LIB, mrsid_decoder_path, and model_path in the script to match your environment and proceed with the usage instructions.
 
 ## Usage
 
@@ -28,5 +45,17 @@ python SLICE_DET.py --proj_lib [path] --mrsid_decoder_path [path] --model_path [
 ## Contributing
 Contributions are welcome! Please fork the repository and submit pull requests with any enhancements, bug fixes, or improvements.
 
+## Future Improvements
+-Better Error Handling
+-Fencing around CUDA
+-Smarter Model Handling for Relevant GSD based Models
+-Training Scripts
+-Geo Files to Annotated Data
+-Training Data Out
+-Other Types of YOLOV8 Model Handling
+
 ## License
-Specify the license under which this software is distributed. (This will need to be defined by the original author or organization.)
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
