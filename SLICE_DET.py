@@ -5,7 +5,7 @@ import concurrent
 from multiprocessing import freeze_support
 import statistics
 import argparse
-from helper_functions import *
+from utils.helper_functions import *
 
 if __name__ == "__main__":
     freeze_support()
