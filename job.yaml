@@ -20,5 +20,5 @@ save_prediction_images: false # true or false
 save_prediction_images_dir: "C:\\Users\\red\\ZoeDepth\\BRE2018_OUT\\prediction_images" ## only used if save_prediction_images is true
 save_prediction_images_format: ".png" ## ".png", ".tif" or "/jpg"
 model_gsd: 6.0
-model_gsd_unit: "in" ## "ft", "m", "cm", "in" per pixel
+model_gsd_unit: "in" ## "ft", "m", "cm", "in", "us_survey_ft" per pixel
 mt: true # true or false - use multithreading
