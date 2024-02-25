@@ -16,7 +16,7 @@ def convert_wgs_to_utm(lon: float, lat: float):
 def convert_gsd_to_Meters(gsd: float, unit_name: str):
     """Converts the model's GSD to meters"""
     feet = ['ft', 'Feet', 'feet', 'ftUS']
-    us_survey_ft = ['us_survey_ft', 'US Survey Feet', 'us_survey_ft']
+    us_survey_ft = ['us_survey_ft', 'US Survey Feet', 'us_survey_ft', 'US survey foot']
     inches = ['in', 'Inches', 'inches']
     cm = ['cm', 'Centimeters', 'centimeters']
     meters = ['m', 'Meters', 'meters']
